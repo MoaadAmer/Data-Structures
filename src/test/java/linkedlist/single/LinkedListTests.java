@@ -1,5 +1,6 @@
-package linkedlist;
+package linkedlist.single;
 
+import linkedlist.LinkedList;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,7 +11,7 @@ public class LinkedListTests {
 
     @BeforeMethod
     public void setup() {
-        linkedList = new LinkedList<String>();
+        linkedList = new LinkedList<>();
 
     }
 
@@ -27,6 +28,7 @@ public class LinkedListTests {
         Assert.assertEquals(linkedList.getCount(), 1);
         Assert.assertEquals(linkedList.getHead().value, item);
         Assert.assertEquals(linkedList.getTail().value, item);
+
     }
 
 
@@ -167,13 +169,12 @@ public class LinkedListTests {
         linkedList.addFirst(item);
 
         //Then
-        Assert.assertEquals(linkedList.contains(item), true);
+        Assert.assertTrue(linkedList.contains(item));
 
-        Assert.assertEquals(linkedList.contains(item + 1), false);
+        Assert.assertFalse(linkedList.contains(item + 1));
 
 
     }
-
 
     @Test
     public void clear() {
@@ -186,12 +187,11 @@ public class LinkedListTests {
         linkedList.clear();
 
         //Then
-        Assert.assertEquals(linkedList.getHead(), null);
-        Assert.assertEquals(linkedList.getTail(), null);
+        Assert.assertNull(linkedList.getHead());
+        Assert.assertNull(linkedList.getTail());
         Assert.assertEquals(linkedList.getCount(), 0);
 
 
     }
-
 
 }

@@ -11,7 +11,7 @@ public class LinkedList<T> {
         addFirst(node);
     }
 
-    public void addFirst(final Node<T> node) {
+    private void addFirst(final Node<T> node) {
 
         if (count == 0) {
             head = tail = node;
@@ -24,13 +24,12 @@ public class LinkedList<T> {
         count++;
     }
 
-
     public void addLast(T item) {
         var node = new Node<>(item);
         addLast(node);
     }
 
-    public void addLast(final Node<T> node) {
+    private void addLast(final Node<T> node) {
 
         if (count == 0) {
             head = tail = node;
@@ -51,7 +50,6 @@ public class LinkedList<T> {
                 head = head.next;
         }
     }
-
 
     public void removeLast() {
 
@@ -106,7 +104,6 @@ public class LinkedList<T> {
     public int getCount() {
         return count;
     }
-
 
     public boolean contains(T item) {
 
