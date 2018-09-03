@@ -29,7 +29,7 @@ public class DoublyLinkedListTests {
 
         //Then
         Assert.assertEquals(doublyLinkedList.getCount(), 1);
-        Assert.assertEquals(doublyLinkedList.getHead().value, item);
+        Assert.assertEquals(doublyLinkedList.getHead().getValue(), item);
         Assert.assertEquals(doublyLinkedList.getTail().value, item);
 
         Assert.assertNull(doublyLinkedList.getHead().previous);
@@ -58,11 +58,11 @@ public class DoublyLinkedListTests {
         Assert.assertEquals(doublyLinkedList.getHead().value, item3);
         Assert.assertEquals(doublyLinkedList.getTail().value, item1);
 
-        Assert.assertEquals(doublyLinkedList.getHead().next, item2);
+        Assert.assertEquals(doublyLinkedList.getHead().next.getValue(), item2);
         Assert.assertNull(doublyLinkedList.getHead().previous);
 
 
-        Assert.assertEquals(doublyLinkedList.getTail().previous, item2);
+        Assert.assertEquals(doublyLinkedList.getTail().previous.getValue(), item2);
         Assert.assertNull(doublyLinkedList.getTail().next);
 
 
@@ -80,8 +80,8 @@ public class DoublyLinkedListTests {
 
         //Then
         Assert.assertEquals(doublyLinkedList.getCount(), 1);
-        Assert.assertEquals(doublyLinkedList.getHead().value, item);
-        Assert.assertEquals(doublyLinkedList.getTail().value, item);
+        Assert.assertEquals(doublyLinkedList.getHead().getValue(), item);
+        Assert.assertEquals(doublyLinkedList.getTail().getValue(), item);
 
 
         Assert.assertNull(doublyLinkedList.getHead().previous);
@@ -107,15 +107,15 @@ public class DoublyLinkedListTests {
 
         //Then
         Assert.assertEquals(doublyLinkedList.getCount(), 3);
-        Assert.assertEquals(doublyLinkedList.getHead().value, item1);
-        Assert.assertEquals(doublyLinkedList.getTail().value, item3);
+        Assert.assertEquals(doublyLinkedList.getHead().getValue(), item1);
+        Assert.assertEquals(doublyLinkedList.getTail().getValue(), item3);
 
 
-        Assert.assertEquals(doublyLinkedList.getHead().next, item2);
+        Assert.assertEquals(doublyLinkedList.getHead().next.getValue(), item2);
         Assert.assertNull(doublyLinkedList.getHead().previous);
 
 
-        Assert.assertEquals(doublyLinkedList.getTail().previous, item2);
+        Assert.assertEquals(doublyLinkedList.getTail().previous.getValue(), item2);
         Assert.assertNull(doublyLinkedList.getTail().next);
     }
 
@@ -137,15 +137,15 @@ public class DoublyLinkedListTests {
 
         //Then
         Assert.assertEquals(doublyLinkedList.getCount(), 2);
-        Assert.assertEquals(doublyLinkedList.getHead().value, item2);
-        Assert.assertEquals(doublyLinkedList.getTail().value, item3);
+        Assert.assertEquals(doublyLinkedList.getHead().getValue(), item2);
+        Assert.assertEquals(doublyLinkedList.getTail().getValue(), item3);
 
 
-        Assert.assertEquals(doublyLinkedList.getHead().next, item3);
+        Assert.assertEquals(doublyLinkedList.getHead().next.getValue(), item3);
         Assert.assertNull(doublyLinkedList.getHead().previous);
 
 
-        Assert.assertEquals(doublyLinkedList.getTail().previous, item2);
+        Assert.assertEquals(doublyLinkedList.getTail().previous.getValue(), item2);
         Assert.assertNull(doublyLinkedList.getTail().next);
     }
 
@@ -167,16 +167,16 @@ public class DoublyLinkedListTests {
 
         //Then
         Assert.assertEquals(doublyLinkedList.getCount(), 2);
-        Assert.assertEquals(doublyLinkedList.getHead().value, item1);
-        Assert.assertEquals(doublyLinkedList.getTail().value, item2);
+        Assert.assertEquals(doublyLinkedList.getHead().getValue(), item1);
+        Assert.assertEquals(doublyLinkedList.getTail().getValue(), item2);
 
 
-        Assert.assertEquals(doublyLinkedList.getHead().next, item2);
-        Assert.assertNull(doublyLinkedList.getHead().previous);
+        Assert.assertEquals(doublyLinkedList.getHead().getNext().getValue(), item2);
+        Assert.assertNull(doublyLinkedList.getHead().getPrevious());
 
 
-        Assert.assertEquals(doublyLinkedList.getTail().previous, item1);
-        Assert.assertNull(doublyLinkedList.getTail().next);
+        Assert.assertEquals(doublyLinkedList.getTail().getPrevious().getValue(), item1);
+        Assert.assertNull(doublyLinkedList.getTail().getNext());
     }
 
     @Test
@@ -196,16 +196,16 @@ public class DoublyLinkedListTests {
         Assert.assertEquals(doublyLinkedList.remove(item1), true);
         Assert.assertEquals(doublyLinkedList.remove(item4), false);
 
-        Assert.assertEquals(doublyLinkedList.getHead().value, item3);
-        Assert.assertEquals(doublyLinkedList.getTail().value, item2);
+        Assert.assertEquals(doublyLinkedList.getHead().getValue(), item3);
+        Assert.assertEquals(doublyLinkedList.getTail().getValue(), item2);
 
 
-        Assert.assertEquals(doublyLinkedList.getHead().next, item2);
-        Assert.assertNull(doublyLinkedList.getHead().previous);
+        Assert.assertEquals(doublyLinkedList.getHead().getNext().getValue(), item2);
+        Assert.assertNull(doublyLinkedList.getHead().getPrevious());
 
 
-        Assert.assertEquals(doublyLinkedList.getTail().previous, item3);
-        Assert.assertNull(doublyLinkedList.getTail().next);
+        Assert.assertEquals(doublyLinkedList.getTail().getPrevious().getValue(), item3);
+        Assert.assertNull(doublyLinkedList.getTail().getNext());
 
     }
 

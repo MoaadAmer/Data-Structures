@@ -20,4 +20,28 @@ public class DoublyNode<T> {
                 ", value=" + value +
                 '}';
     }
+
+    public DoublyNode getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(DoublyNode previous) {
+        this.previous = previous;
+    }
+
+    public DoublyNode getNext() {
+        return next;
+    }
+
+    public void setNext(DoublyNode next) {
+        this.next = next;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
 }
