@@ -64,11 +64,7 @@ public class DoublyLinkedList<T> {
             if (count == 0) {
                 head = tail = null;
             } else {
-                DoublyNode<T> node = head;
-                while (node.next != tail) {
-                    node = node.next;
-                }
-                tail = node;
+                tail = tail.previous;
                 tail.next = null;
             }
         }
@@ -77,22 +73,19 @@ public class DoublyLinkedList<T> {
 
     public boolean remove(T item) {
 
-        DoublyNode<T> prevDoublyNode = null;
         for (DoublyNode<T> currentDoublyNode = head; currentDoublyNode != null; currentDoublyNode = currentDoublyNode.next) {
             if (currentDoublyNode.value.equals(item)) {
-                if (prevDoublyNode == null) {
+                if (currentDoublyNode.getPrevious() == null) {
                     removeFirst();
+                } else if (currentDoublyNode.next == null) {
+                    removeLast();
                 } else {
-                    prevDoublyNode.next = currentDoublyNode.next;
-                    if (currentDoublyNode.next == null) {
-                        tail = prevDoublyNode;
-                    }
+                    currentDoublyNode.getPrevious().setNext(currentDoublyNode.getNext());
                     count--;
                 }
 
                 return true;
             }
-            prevDoublyNode = currentDoublyNode;
         }
 
         return false;
