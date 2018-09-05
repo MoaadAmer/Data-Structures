@@ -121,4 +121,21 @@ public class StackAsArrayTests {
 
     }
 
+
+    @Test
+    public void popShouldReturnLastPushedValue() {
+
+        //Given
+        stackAsArray = new StackAsArray();
+        var firstName = "Moaad";
+        var lastName = "Amer";
+
+        //When
+        stackAsArray.push(firstName);
+        stackAsArray.push(lastName);
+
+        //Then
+        Assert.assertEquals(stackAsArray.peek(), lastName);
+    }
+
 }
