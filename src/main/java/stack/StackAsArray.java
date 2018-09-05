@@ -45,6 +45,10 @@ public class StackAsArray<T> {
     }
 
 
+    public void clear() {
+        count = -1;
+    }
+
     public int getSize() {
         return count + 1;
     }

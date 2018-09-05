@@ -133,4 +133,44 @@ public class StackAsLinkedListTests {
         Assert.assertEquals(stackAsLinkedList.peek(), lastName);
     }
 
+
+    @Test
+    public void clearShouldSetSizeToZero() {
+
+        //Given
+        stackAsLinkedList = new StackAsLinkedList<String>();
+        var firstName = "Moaad";
+        var lastName = "Amer";
+
+        //When
+        stackAsLinkedList.push(firstName);
+        stackAsLinkedList.push(lastName);
+        stackAsLinkedList.clear();
+
+        //Then
+        Assert.assertEquals(stackAsLinkedList.getSize(), 0);
+    }
+
+    @Test
+    public void clearShouldRemoveAllValues() {
+
+        //Given
+        stackAsLinkedList = new StackAsLinkedList<String>();
+        var firstName = "Moaad";
+        var lastName = "Amer";
+
+        //When
+        stackAsLinkedList.push(firstName);
+        stackAsLinkedList.push(lastName);
+        stackAsLinkedList.clear();
+
+        //Then
+        try {
+            stackAsLinkedList.pop();
+        } catch (Exception e) {
+            //Then
+            Assert.assertTrue(e instanceof EmptyStackException);
+        }
+    }
+
 }

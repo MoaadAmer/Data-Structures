@@ -32,4 +32,8 @@ public class StackAsLinkedList<T> {
             throw new EmptyStackException();
         return (T) linkedList.getHead().getValue();
     }
+
+    public void clear() {
+        linkedList.clear();
+    }
 }

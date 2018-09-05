@@ -138,4 +138,44 @@ public class StackAsArrayTests {
         Assert.assertEquals(stackAsArray.peek(), lastName);
     }
 
+
+    @Test
+    public void clearShouldSetSizeToZero() {
+
+        //Given
+        stackAsArray = new StackAsArray();
+        var firstName = "Moaad";
+        var lastName = "Amer";
+
+        //When
+        stackAsArray.push(firstName);
+        stackAsArray.push(lastName);
+        stackAsArray.clear();
+
+        //Then
+        Assert.assertEquals(stackAsArray.getSize(), 0);
+    }
+
+    @Test
+    public void clearShouldRemoveAllValues() {
+
+        //Given
+        stackAsArray = new StackAsArray();
+        var firstName = "Moaad";
+        var lastName = "Amer";
+
+        //When
+        stackAsArray.push(firstName);
+        stackAsArray.push(lastName);
+        stackAsArray.clear();
+
+        //Then
+        try {
+            stackAsArray.pop();
+        } catch (Exception e) {
+            //Then
+            Assert.assertTrue(e instanceof EmptyStackException);
+        }
+    }
+
 }
