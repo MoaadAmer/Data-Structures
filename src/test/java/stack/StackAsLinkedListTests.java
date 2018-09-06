@@ -71,20 +71,13 @@ public class StackAsLinkedListTests {
         Assert.assertEquals(stackAsLinkedList.peek(), lastName);
     }
 
-    @Test
+    @Test(expectedExceptions = EmptyStackException.class)
     public void peekShouldThrowEmptyStackExceptionWhenEmpty() {
         //given
         stackAsLinkedList = new StackAsLinkedList<String>();
 
         //When
-        try {
-            stackAsLinkedList.peek();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof EmptyStackException);
-        }
-
-
+        stackAsLinkedList.peek();
     }
 
     @Test
@@ -102,19 +95,13 @@ public class StackAsLinkedListTests {
 
     }
 
-    @Test
+    @Test(expectedExceptions = EmptyStackException.class)
     public void popShouldThrowEmptyStackExceptionWhenEmpty() {
         //given
         stackAsLinkedList = new StackAsLinkedList();
 
         //When
-        try {
-            stackAsLinkedList.pop();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof EmptyStackException);
-        }
-
+        stackAsLinkedList.pop();
     }
 
     @Test
@@ -151,7 +138,7 @@ public class StackAsLinkedListTests {
         Assert.assertEquals(stackAsLinkedList.getSize(), 0);
     }
 
-    @Test
+    @Test(expectedExceptions = EmptyStackException.class)
     public void clearShouldRemoveAllValues() {
 
         //Given
@@ -165,12 +152,8 @@ public class StackAsLinkedListTests {
         stackAsLinkedList.clear();
 
         //Then
-        try {
-            stackAsLinkedList.pop();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof EmptyStackException);
-        }
+        Assert.assertEquals(stackAsLinkedList.getSize(), 0);
+        stackAsLinkedList.pop();
     }
 
 }

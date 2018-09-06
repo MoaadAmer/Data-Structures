@@ -74,20 +74,13 @@ public class StackAsArrayTests {
         Assert.assertEquals(stackAsArray.peek(), lastName);
     }
 
-    @Test
+    @Test(expectedExceptions = EmptyStackException.class)
     public void peekShouldThrowEmptyStackExceptionWhenEmpty() {
         //given
         stackAsArray = new StackAsArray();
 
         //When
-        try {
-            stackAsArray.peek();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof EmptyStackException);
-        }
-
-
+        stackAsArray.peek();
     }
 
     @Test
@@ -105,20 +98,14 @@ public class StackAsArrayTests {
 
     }
 
-    @Test
+    @Test(expectedExceptions = EmptyStackException.class)
+
     public void popShouldThrowEmptyStackExceptionWhenEmpty() {
         //given
         stackAsArray = new StackAsArray();
 
         //When
-        try {
-            stackAsArray.pop();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof EmptyStackException);
-        }
-
-
+        stackAsArray.pop();
     }
 
 
@@ -156,7 +143,7 @@ public class StackAsArrayTests {
         Assert.assertEquals(stackAsArray.getSize(), 0);
     }
 
-    @Test
+    @Test(expectedExceptions = EmptyStackException.class)
     public void clearShouldRemoveAllValues() {
 
         //Given
@@ -170,12 +157,8 @@ public class StackAsArrayTests {
         stackAsArray.clear();
 
         //Then
-        try {
-            stackAsArray.pop();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof EmptyStackException);
-        }
+        Assert.assertEquals(stackAsArray.getSize(), 0);
+        stackAsArray.pop();
     }
 
 }

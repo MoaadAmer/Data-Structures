@@ -82,19 +82,13 @@ public class QueueAsLinkedListTests {
 
     }
 
-    @Test
+    @Test(expectedExceptions = QueueEmptyException.class)
     public void pollShouldThrowQueueEmptyException() {
         //Given
         queueAsLinkedList = new QueueAsLinkedList<String>();
 
         //When
-        try {
-            queueAsLinkedList.poll();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof QueueEmptyException);
-        }
-
+        queueAsLinkedList.poll();
     }
 
 
@@ -130,19 +124,13 @@ public class QueueAsLinkedListTests {
 
     }
 
-    @Test
+    @Test(expectedExceptions = QueueEmptyException.class)
     public void peekShouldThrowQueueEmptyException() {
         //Given
         queueAsLinkedList = new QueueAsLinkedList<String>();
 
         //When
-        try {
-            queueAsLinkedList.peek();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof QueueEmptyException);
-        }
-
+        queueAsLinkedList.peek();
     }
 
 
@@ -163,7 +151,7 @@ public class QueueAsLinkedListTests {
         Assert.assertEquals(queueAsLinkedList.getSize(), 0);
     }
 
-    @Test
+    @Test(expectedExceptions = QueueEmptyException.class)
     public void clearShouldRemoveAllValues() {
 
         //Given
@@ -177,12 +165,9 @@ public class QueueAsLinkedListTests {
         queueAsLinkedList.clear();
 
         //Then
-        try {
-            queueAsLinkedList.poll();
-        } catch (Exception e) {
-            //Then
-            Assert.assertTrue(e instanceof QueueEmptyException);
-        }
+        Assert.assertEquals(queueAsLinkedList.getSize(), 0);
+        queueAsLinkedList.poll();
+
     }
 
 
