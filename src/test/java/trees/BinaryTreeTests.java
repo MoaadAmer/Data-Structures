@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class BinaryTreeNodeTests {
+public class BinaryTreeTests {
 
     BinaryTree binaryTree;
     List<Integer> data = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -59,8 +59,12 @@ public class BinaryTreeNodeTests {
 
         //When
         binaryTree.add(data.get(1));
-        binaryTree.add(data.get(0));
 
+        //Then
+        Assert.assertEquals(binaryTree.getSize(), 1);
+
+        //When
+        binaryTree.add(data.get(0));
 
         //Then
         Assert.assertEquals(binaryTree.getSize(), 2);
