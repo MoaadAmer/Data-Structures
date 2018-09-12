@@ -11,17 +11,16 @@ public class BinaryTree {
     public void add(final int value) {
         if (root == null) {
             root = new BinaryTreeNode(value);
-            return;
+            size++;
+        } else {
+            add(root, value);
         }
-        add(root, value);
     }
 
     private BinaryTreeNode add(final BinaryTreeNode current, final int value) {
         if (current == null) {
-            size++;
             return new BinaryTreeNode(value);
-        }
-        if (value > current.getValue()) {
+        } else if (value > current.getValue()) {
             current.setRightNode(add(current.getRightNode(), value));
         } else if (value < current.getValue()) {
             current.setLeftNode(add(current.getLeftNode(), value));
@@ -47,13 +46,13 @@ public class BinaryTree {
         else return find(current.getLeftNode(), value);
 
     }
-/*
+
     public boolean remove(int value) {
         BinaryTreeNode foundNode = find(value);
         if (foundNode == null) throw new IllegalArgumentException("value : " + value + " Does not exist");
-        if (foundNode.getLeftNode() == null && foundNode.getRightNode() == null)
-            return false;
-    }*/
+//        if (foundNode.getLeftNode() == null && foundNode.getRightNode() == null)
+        return false;
+    }
 
 
     public BinaryTreeNode getRoot() {
