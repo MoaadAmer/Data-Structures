@@ -18,12 +18,18 @@ public class BinaryTree {
     }
 
     private BinaryTreeNode add(final BinaryTreeNode current, final int value) {
-        if (current == null) {
-            return new BinaryTreeNode(value);
-        } else if (value > current.getValue()) {
-            current.setRightNode(add(current.getRightNode(), value));
+        if (value > current.getValue()) {
+            if (current.getRightNode() == null) {
+                current.setRightNode(new BinaryTreeNode(value));
+            } else {
+                add(current.getRightNode(), value);
+            }
         } else if (value < current.getValue()) {
-            current.setLeftNode(add(current.getLeftNode(), value));
+            if (current.getLeftNode() == null) {
+                current.setLeftNode(new BinaryTreeNode(value));
+            } else {
+                add(current.getLeftNode(), value);
+            }
         }
         size++;
         return current;
