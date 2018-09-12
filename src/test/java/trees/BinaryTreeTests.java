@@ -58,16 +58,22 @@ public class BinaryTreeTests {
     public void whenAddingValueSizeShouldIncreaseByOne() {
 
         //When
-        binaryTree.add(data.get(1));
+        binaryTree.add(data.get(2));
 
         //Then
         Assert.assertEquals(binaryTree.getSize(), 1);
 
         //When
-        binaryTree.add(data.get(0));
+        binaryTree.add(data.get(1));
 
         //Then
         Assert.assertEquals(binaryTree.getSize(), 2);
+
+        //When
+        binaryTree.add(data.get(0));
+
+        //Then
+        Assert.assertEquals(binaryTree.getSize(), 3);
     }
 
     @Test

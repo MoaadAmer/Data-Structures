@@ -11,13 +11,13 @@ public class BinaryTree {
     public void add(final int value) {
         if (root == null) {
             root = new BinaryTreeNode(value);
-            size++;
         } else {
             add(root, value);
         }
+        size++;
     }
 
-    private BinaryTreeNode add(final BinaryTreeNode current, final int value) {
+    private void add(final BinaryTreeNode current, final int value) {
         if (value > current.getValue()) {
             if (current.getRightNode() == null) {
                 current.setRightNode(new BinaryTreeNode(value));
@@ -31,8 +31,7 @@ public class BinaryTree {
                 add(current.getLeftNode(), value);
             }
         }
-        size++;
-        return current;
+
     }
 
 
