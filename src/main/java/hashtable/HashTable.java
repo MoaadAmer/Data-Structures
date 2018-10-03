@@ -93,4 +93,14 @@ public class HashTable<K, V> {
     }
 
 
+    public boolean remove(K key) {
+        Node<KeyValue<K, V>> found = getNode(key);
+        if (found != null) {
+            int index = getKeyIndex(key);
+            buckets[index].remove(found.getValue());
+            filledBuckets--;
+            return true;
+        }
+        return false;
+    }
 }

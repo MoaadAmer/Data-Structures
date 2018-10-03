@@ -70,12 +70,29 @@ public class HashTablesTests {
     @Test
     public void removeShouldReturnInCaseOfSuccess() {
 
+        hashTable.add("Israel", "Jerusalem");
+        hashTable.add("United States of America", "Washington, D.C.");
+        hashTable.add("Egypt", "Cairo");
+
+
+        Assert.assertTrue(hashTable.remove("Israel"));
+        assertEquals(hashTable.getSize(), 2);
+        Assert.assertTrue(hashTable.remove("United States of America"));
+        assertEquals(hashTable.getSize(), 1);
+        Assert.assertTrue(hashTable.remove("Egypt"));
+        assertEquals(hashTable.getSize(), 0);
+
 
     }
 
     @Test
     public void removeShouldReturnFalseInCaseTheKeyDoesNotExist() {
 
-
+        Assert.assertFalse(hashTable.remove("Israel"));
+        assertEquals(hashTable.getSize(), 0);
+        Assert.assertFalse(hashTable.remove("United States of America"));
+        assertEquals(hashTable.getSize(), 0);
+        Assert.assertFalse(hashTable.remove("Egypt"));
+        assertEquals(hashTable.getSize(), 0);
     }
 }
